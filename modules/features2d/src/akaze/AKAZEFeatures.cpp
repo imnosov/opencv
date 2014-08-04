@@ -263,7 +263,8 @@ void AKAZEFeatures::Find_Scale_Space_Extrema(std::vector<cv::KeyPoint>& kpts)
         smax = 12.0f*sqrtf(2.0f);
     }
 
-    for (size_t i = 0; i < evolution_.size(); i++) {
+    // imnosov
+    for (size_t i = 1; i < evolution_.size(); i++) {
         for (int ix = 1; ix < evolution_[i].Ldet.rows - 1; ix++) {
             for (int jx = 1; jx < evolution_[i].Ldet.cols - 1; jx++) {
                 is_extremum = false;
@@ -284,6 +285,7 @@ void AKAZEFeatures::Find_Scale_Space_Extrema(std::vector<cv::KeyPoint>& kpts)
 
                     is_extremum = true;
                     point.response = fabs(value);
+                    float esigma = evolution_[i].esigma;
                     point.size = evolution_[i].esigma*options_.derivative_factor;
                     point.octave = (int)evolution_[i].octave;
                     point.class_id = (int)i;
@@ -345,7 +347,7 @@ void AKAZEFeatures::Find_Scale_Space_Extrema(std::vector<cv::KeyPoint>& kpts)
     } // for i
 
     // Now filter points with the upper scale level
-    for (size_t i = 0; i < kpts_aux.size(); i++) {
+    for (size_t i = 1; i < kpts_aux.size(); i++) {
 
         is_repeated = false;
         const cv::KeyPoint& pt = kpts_aux[i];
@@ -877,7 +879,7 @@ void MSURF_Upright_Descriptor_64_Invoker::Get_MSURF_Upright_Descriptor_64(const 
 
                     fx = sample_x - x1;
                     fy = sample_y - y1;
-
+                    
                     res1 = *(evolution[level].Lx.ptr<float>(y1)+x1);
                     res2 = *(evolution[level].Lx.ptr<float>(y1)+x2);
                     res3 = *(evolution[level].Lx.ptr<float>(y2)+x1);
