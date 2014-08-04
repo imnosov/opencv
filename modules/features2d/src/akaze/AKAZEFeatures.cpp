@@ -346,7 +346,7 @@ void AKAZEFeatures::Find_Scale_Space_Extrema(std::vector<cv::KeyPoint>& kpts)
     } // for i
 
     // Now filter points with the upper scale level
-    for (size_t i = 1; i < kpts_aux.size(); i++) {
+    for (size_t i = 0; i < kpts_aux.size(); i++) {
 
         is_repeated = false;
         const cv::KeyPoint& pt = kpts_aux[i];
