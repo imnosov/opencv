@@ -285,7 +285,6 @@ void AKAZEFeatures::Find_Scale_Space_Extrema(std::vector<cv::KeyPoint>& kpts)
 
                     is_extremum = true;
                     point.response = fabs(value);
-                    float esigma = evolution_[i].esigma;
                     point.size = evolution_[i].esigma*options_.derivative_factor;
                     point.octave = (int)evolution_[i].octave;
                     point.class_id = (int)i;

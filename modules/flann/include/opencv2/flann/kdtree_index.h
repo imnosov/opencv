@@ -461,6 +461,12 @@ private:
             result.addPoint(100000.f, index++);
         }
 
+        // imnosov
+        int index = 0;
+        while (!result.full()) {
+            result.addPoint(100000.f, index++);
+        }
+
         assert(result.full());
     }
 
