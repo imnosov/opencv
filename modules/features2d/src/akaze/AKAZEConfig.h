@@ -38,7 +38,8 @@ struct AKAZEOptions {
 
     AKAZEOptions()
         : omax(4)
-        , nsublevels(4)
+    // imnosov: parameters
+        , nsublevels(1)
         , img_width(0)
         , img_height(0)
         , soffset(1.6f)
@@ -46,7 +47,7 @@ struct AKAZEOptions {
         , sderivatives(1.0)
         , diffusivity(PM_G2)
 
-        , dthreshold(0.001f)
+        , dthreshold(0.003f)
         , min_dthreshold(0.00001f)
 
         , descriptor(cv::AKAZE::DESCRIPTOR_MLDB)
