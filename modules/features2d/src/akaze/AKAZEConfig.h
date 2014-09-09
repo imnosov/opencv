@@ -47,7 +47,7 @@ struct AKAZEOptions {
         , sderivatives(1.0)
         , diffusivity(PM_G2)
 
-        , dthreshold(0.003f)
+        , dthreshold(0.0025f)
         , min_dthreshold(0.00001f)
 
         , descriptor(cv::AKAZE::DESCRIPTOR_MLDB)
