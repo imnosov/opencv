@@ -57,13 +57,18 @@ namespace cv
         : descriptor(DESCRIPTOR_MLDB)
         , descriptor_channels(3)
         , descriptor_size(0)
+        , nsublevels(1)
+        , dtreshhold(0.0025f)
     {
     }
 
-    AKAZE::AKAZE(DESCRIPTOR_TYPE _descriptor_type, int _descriptor_size, int _descriptor_channels)
+    AKAZE::AKAZE(DESCRIPTOR_TYPE _descriptor_type, int _descriptor_size, int _descriptor_channels,
+                 int _nsublevels, float _dtreshhold)
         : descriptor(_descriptor_type)
         , descriptor_channels(_descriptor_channels)
         , descriptor_size(_descriptor_size)
+        , nsublevels(_nsublevels)
+        , dtreshhold(_dtreshhold)
     {
 
     }
@@ -156,6 +161,8 @@ namespace cv
         options.descriptor = static_cast<DESCRIPTOR_TYPE>(descriptor);
         options.descriptor_channels = descriptor_channels;
         options.descriptor_size = descriptor_size;
+        options.nsublevels = nsublevels;
+        options.dthreshold = dtreshhold;
         options.img_width = img.cols;
         options.img_height = img.rows;
 
@@ -191,6 +198,8 @@ namespace cv
         options.descriptor = static_cast<DESCRIPTOR_TYPE>(descriptor);
         options.descriptor_channels = descriptor_channels;
         options.descriptor_size = descriptor_size;
+        options.nsublevels = nsublevels;
+        options.dthreshold = dtreshhold;
         options.img_width = img.cols;
         options.img_height = img.rows;
 
@@ -219,6 +228,8 @@ namespace cv
         options.descriptor = static_cast<DESCRIPTOR_TYPE>(descriptor);
         options.descriptor_channels = descriptor_channels;
         options.descriptor_size = descriptor_size;
+        options.nsublevels = nsublevels;
+        options.dthreshold = dtreshhold;
         options.img_width = img.cols;
         options.img_height = img.rows;
 

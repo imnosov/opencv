@@ -945,7 +945,8 @@ public:
     };
 
     CV_WRAP AKAZE();
-    explicit AKAZE(DESCRIPTOR_TYPE descriptor_type, int descriptor_size = 0, int descriptor_channels = 3);
+    explicit AKAZE(DESCRIPTOR_TYPE descriptor_type, int descriptor_size = 0, int descriptor_channels = 3,
+                   int nsublevels = 1, float dtreshhold = 0.0025f);
 
     virtual ~AKAZE();
 
@@ -973,6 +974,8 @@ protected:
     CV_PROP int descriptor;
     CV_PROP int descriptor_channels;
     CV_PROP int descriptor_size;
+    CV_PROP int nsublevels;
+    CV_PROP float dtreshhold;
 
 };
 /****************************************************************************************\
